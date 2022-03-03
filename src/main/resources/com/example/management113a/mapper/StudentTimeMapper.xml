@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.management113a.mapper.StudentTimeMapper">
+
+    <insert id="insertStartTime">
+        insert into stime (StartTime, Snumber)
+        values (#{startTime}, #{snumber})
+    </insert>
+    <insert id="insertEndTime">
+        insert into stime (EndTime, Snumber)
+        values (#{EndTime}, #{snumber})
+    </insert>
+    <insert id="insertTime">
+        insert into stime (StartTime, EndTime, Snumber)
+        values (#{startTime}, #{EndTime}, #{snumber})
+    </insert>
+
+
+    <select id="selectTimeByNumber" resultType="com.example.management113a.pojo.StudentTime">
+        select starttime, endtime
+        from laboratory_113a.stime
+        where Snumber = #{snumber}
+          and StartTime >= #{startTime}
+          and EndTime &lt;= #{EndTime};
+    </select>
+    <select id="selectStartTimeByNumber" resultType="com.example.management113a.pojo.StudentTime">
+        select starttime
+        from laboratory_113a.stime
+        where Snumber = #{snumber}
+          and EndTime &lt;= #{EndTime};
+    </select>
+    <select id="selectEndTimeBynumber" resultType="com.example.management113a.pojo.StudentTime">
+        select endtime
+        from laboratory_113a.stime
+        where Snumber = #{snumber}
+          and StartTime >= #{startTime}
+    </select>
+</mapper>

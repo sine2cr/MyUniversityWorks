@@ -1,0 +1,35 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: skyblue;
+}
+
+h2 {
+    text-align: center;
+}
+
+#box {
+    display: flex;
+    background-color: whitesmoke;
+    height: 500px;
+}
+
+#gra {
+    background-color: skyblue;
+    width: 500px;
+    height: 500px;
+}
+
+#box1,
+#box2,
+#box3{
+    flex: 1;
+    text-align: center;
+    width: 500px;
+
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>113A物联网竞赛实验室考勤系统</title>
+    <script type="text/javascript" src="JS/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/system.css">
+</head>
+<body>
+<h2>113A物联网竞赛实验室考勤系统</h2>
+<div id="box">
+    <div id="box1">
+        <h3>查询时间</h3>
+        <p>起始时间<input type="datetime-local" id="getStartTime"></p>
+        <p>结束时间<input type="datetime-local" id="getEndtime"></p>
+        <button id="selectTime">查询时间</button>
+        <a download="" href="" id="download">下载文件</a>
+
+    </div>
+    <div id="box2">
+        <h3>签到面板</h3>
+        <button id="signIN">点击开始签到</button>
+        <button id="signOUT">点击结束签到</button>
+        <p><span id="setStartTime">开始时间</span></p>
+        <p><span id="setEndtime">结束时间</span></p>
+        <button id="submit">提交</button>
+    </div>
+    <div id="box3">
+        <h3>显示数据</h3>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="JS/system.js"></script>
+</html>
