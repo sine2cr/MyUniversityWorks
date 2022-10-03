@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>css</title>
+<style type="text/css">
+/*
+1、把具有tiltle属性的元素设置为红色字体；
+
+2、把“name”属性值中包含“chu”的元素设置为蓝色，加粗；
+
+3、把“name”属性值以“ch”开头的元素设置为绿色背景；
+
+4、把具有title属性的p元素设置为斜体。
+*/
+
+h1[title]{
+    color: red;
+}
+p[name*="chu"]{
+    color: blue;
+    font-weight: bold;
+}
+
+p[name^="ch"]{
+    background-color:green;
+}
+p[title]{
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<h1 title="诗人">徐志摩</h1>
+
+<p title="p1" name="chao">走着走着， 就散了， 回忆都淡了；</p>
+
+<p name="jiu chu ">看着看着，就累了，星光也暗了；</p>
+
+<p name="linchujiu">听着听着，就醒了，开始埋怨了；</p>
+
+<p name="changjianghuanghe">回头发现，你不见了，突然我乱了。</p>
+
+</body>
+
+</html>
+

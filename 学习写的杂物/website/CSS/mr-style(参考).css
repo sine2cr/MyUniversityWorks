@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+.mr-cont {      /*定义总区域*/
+    margin: 20px auto;
+    height: 700px;
+    width: 950px;
+    border: 1px solid #F00
+}
+
+.mr-pic {/*定义图片区域*/
+    float: left;
+    margin: 50px auto
+    
+}
+
+.mr-mess {/*定义详情区域*/
+    float: left;
+    width: 528px;
+    margin: 30px 20px;
+}
+
+dl {
+    margin: 20px;
+    text-align: center;
+    width: 340px;
+    height: 435px;
+    border: 1px #999999 solid
+}
+
+dt {
+    margin-top: 70px;
+}
+
+dd {
+    float: left;
+    margin: 30px 5px;
+    border: 1px solid #CCC;
+}
+
+.mr-sel { /*定义模拟选中的图片的框*/
+    margin-left: 50px;
+    border: 1px solid #C00;
+}
+
+ul li {
+    list-style: none;
+    float: left;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+/*选择.list1后面的所有li元素（li与list1所在元素具有同父元素）*/
+.list1~li{ 
+    width: 120px;
+    border: 1px dashed #999999;
+    margin: 0 5px;
+}
+
+
+.mr-price {
+    background: #FBECFF
+}
+/* tips: */
+/*1、~波浪号
+
+　　A ~ B    选择A标签后的所有B标签，【A和B必须有相同的父元素】
+
+2、+加号（兄弟选择器）
+
+　　A+B     选择紧邻在A后面的B元素，【A和B必须拥相同的父元素】所选到的仅为一个B元素标签。
+
+3、>大于号
+
+　　A>B      选择A元素里面的B元素【B元素是A元素下的第一代，只第一后代】
+  */

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javaee-web-api-6.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/javaee-web-api-6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

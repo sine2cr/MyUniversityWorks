@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+
+    <title>运输面板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: skyblue;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            display: flex;
+            background-color: whitesmoke;
+        }
+
+        .gra {
+            background-color: skyblue;
+            width: 500px;
+            height: 500px;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6 {
+            flex: 1;
+            height: 500px;
+            width: 500px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>系统</h2>
+    <div class="box">
+        <div class="box1">
+            <p>箱号:<span id="VID"></span></p>
+            <p>箱内物品号:<span id="PID"></span></p>
+            <p>箱内温度:<span id="Tin"></span></p>
+            <p>箱外温度:<span id="Tout"></span></p>
+            <p>箱内光照:<span id="LXin"></span></p>
+            <p>故障情况:<span id="BUG"></span></p>
+        </div>
+        <div class="box2">
+            <p>请输入低温阈值:<input type="text" id="in1"><br>当前低温阈值<input type="text" id="sin1"></p>
+            <p>请输入高温阈值:<input type="text" id="in2"><br>当前高温阈值<input type="text" id="sin2"></p>
+            <p>请输入光照阈值:<input type="text" id="in3"><br>当前光照阈值<input type="text" id="sin3"></p>
+            <p><button type="button" id="submit">提交</button> </p>
+            <p>
+                选择查询的数据:
+                <select name="" id="selcontrol">
+                    <option value="S_VID">储运箱编号</option>
+                    <option value="S_PID">储运物品编号</option>
+                    <option value="S_Tin">箱内温度</option>
+                    <option value="S_Tout">箱外温度</option>
+                    <option value="S_LXin">箱内光照</option>
+                    <option value="S_BUG">故障报警</option>
+                </select>
+            </p>
+            <p>选择日期:<input type="date" name="selData" id="selDataYear"></p>
+            <p>选择时间:<input type="time" name="selData" id="selDataTime">
+
+            </p>
+            <p><button id="btn">查询历史记录</button></p>
+            <p><button id="btn_clear">清空表格</button></p>
+
+        </div>
+        <div class="box3">
+            <h2>历史数据</h2>
+        </div>
+    </div>
+    <div>
+        <h2>显示图表</h2>
+        <div class="box">
+            <div class="box4" id="box4">
+                <h2>箱内温度</h2>
+            </div>
+            <div class="box5" id="box5">
+                <h2>箱外温度</h2>
+            </div>
+            <div class="box6" id="box6">
+                <h2>光照度</h2>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        //设置当前时间
+        function setTime() {
+            var now = new Date();
+            var month = (10 > (now.getMonth() + 1)) ? '0' + (now.getMonth() + 1) : now.getMonth() + 1;
+            var day = (10 > now.getDate()) ? '0' + now.getDate() : now.getDate();
+            var hour = (10 > now.getHours()) ? '0' + now.getHours() : now.getHours();
+            var minute = (10 > now.getMinutes()) ? '0' + now.getMinutes() : now.getMinutes();
+            //   var second = ( 10 > now.getSeconds() ) ? '0' + now.getSeconds() : now.getSeconds();
+            var today = now.getFullYear() + '-' + month + '-' + day;
+            var todayTime = hour + ':' + minute;
+            $("#selDataYear").val(today);
+            $("#selDataTime").val(todayTime);
+        }
+        setTime();
+        setInterval(function () {
+            $.ajax({
+                url: "Find/VID?VID=202123",
+                type: "GET",
+                success: function (result) {
+                    $(".box1 p:nth-child(1) span").text(result[0].vid);
+                    $(".box1 p:nth-child(2) span").text(result[0].pid);
+
+                }
+            })
+            $.ajax({
+                url: "Find/TSenData",
+                type: "GET",
+                success: function (result) {
+                    $(".box1 p:nth-child(3) span").text(result[0].tin);
+                    $(".box1 p:nth-child(4) span").text(result[0].tout);
+                    $(".box1 p:nth-child(5) span").text(result[0].lxin);
+                    if (result[0].vstatus == 0) {
+                        $(".box1 p:nth-child(6) span").text("正常");
+                    } else {
+                        $(".box1 p:nth-child(6) span").text("异常");
+                    }
+                }
+            })
+        }, 1000)
+
+        $("#btn_clear").click(function () {
+            $(".box3").empty();
+        })
+        $("#btn").click(function () {
+            var datetime = $("#selDataYear").val() + " " + $("#selDataTime").val();
+            var controller = $("#selcontrol").val();
+            var submitted = $("#selcontrol").val() + " " + datetime;
+            $.ajax({
+                url: "/iceBox/Find/SenData?time=" + $("#selDataYear").val() + " " + $("#selDataTime").val(),
+                type: "GET",
+                success: function (result) {
+                    if (controller == 'S_VID') {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "储运箱编号" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    } else if (controller == 'S_PID') {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "储运物品编号" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    } else if (controller == 'S_Tin') {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "箱内温度" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    } else if (controller == 'S_Tout') {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "箱外温度" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    } else if (controller == 'S_LXin') {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "箱内光照" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    } else {
+                        var txt1 = "<tr >";
+                        var txt2 = "</tr>";
+                        var txt3 = "<td align='center'>";
+                        var txt4 = "</td>";
+                        $(".box3").empty();
+                        $(".box3").append("<tr>" + "<td>" + "时间" + "</td>" + "<td>" + "故障报警" + "</td>" + "</tr>");
+                        $.each(result, function (index, element) {
+                            $(".box3").append(txt1 + txt3 + element.times + txt4 + txt3 + element.tem + txt4 + txt2);
+                        })
+                    }
+                }
+            })
+        })
+        function setBox4Graph() {
+            var myEchart = echarts.init(document.getElementById('box4'));
+            $.ajax({
+                url: "/iceBox/Find/TSenData",
+                type: "GET",
+                success: function (result) {
+                    var times = new Array();
+                    var tin = new Array();
+                    result.forEach(function (item, index, arr) {
+                        times.push(arr[index].times);
+                        tin.push(arr[index].tin);
+                    });
+                    var option = {
+                        title: {
+                            text: "内温度"
+                        },
+                        tooltip: {
+
+                        },
+                        legend: {
+                            data: ["数据"]
+                        },
+                        xAxis: {
+                            formatter: '{yyyy}-{MM}-{dd}' + '' + '{HH}:{mm}',
+                            name: '时间',
+                            data: times
+                        },
+                        yAxis: {
+
+                        },
+                        series: [
+                            {
+                                name: '内温度',
+                                type: "bar",
+                                data: tin
+                            }
+                        ]
+
+                    };
+                    myEchart.setOption(option, false, true);
+
+                }
+            })
+
+
+        }
+        function setBox5Graph() {
+            var myEchart = echarts.init(document.getElementById('box5'));
+            $.ajax({
+                url: "/iceBox/Find/TSenData",
+                type: "GET",
+                success: function (result) {
+                    var times = new Array();
+                    var tout = new Array();
+                    result.forEach(function (item, index, arr) {
+                        times.push(arr[index].times);
+                        tout.push(arr[index].tout);
+                    });
+                    var option = {
+                        title: {
+                            text: "外温度"
+                        },
+                        tooltip: {
+
+                        },
+                        legend: {
+                            data: ["数据"]
+                        },
+                        xAxis: {
+                            formatter: '{yyyy}-{MM}-{dd}' + '' + '{HH}:{mm}',
+                            name: '时间',
+                            data: times
+                        },
+                        yAxis: {
+
+                        },
+                        series: [
+                            {
+                                name: '外温度',
+                                type: "bar",
+                                data: tout
+                            }
+                        ]
+                    };
+                    myEchart.setOption(option, false, true);
+
+                }
+            })
+
+        }
+        function setBox6Graph() {
+            var myEchart = echarts.init(document.getElementById('box6'));
+            $.ajax({
+                url: "/iceBox/Find/TSenData",
+                type: "GET",
+                success: function (result) {
+                    var times = new Array();
+                    var lxin = new Array();
+                    result.forEach(function (item, index, arr) {
+                        lxin.push(arr[index].lxin);
+                        times.push(arr[index].times);
+
+                    });
+                    var option = {
+                        title: {
+                            text: "光照度"
+                        },
+                        tooltip: {
+
+                        },
+                        legend: {
+                            data: ["数据"]
+                        },
+                        xAxis: {
+                            formatter: '{yyyy}-{MM}-{dd}' + '' + '{HH}:{mm}',
+                            name: '时间',
+                            data: times
+                        },
+                        yAxis: {
+
+                        },
+                        series: [
+                            {
+                                name: '光照度',
+                                type: "bar",
+                                data: lxin
+                            }
+                        ]
+                    };
+                    myEchart.setOption(option, false, true);
+
+                }
+            })
+
+        }
+        setInterval(setBox4Graph, 1000);
+        setInterval(setBox5Graph, 1000);
+        setInterval(setBox6Graph, 1000);
+        $("#submit").click(function () {
+            //&& Ttall === unll && Light === unll && Light === unll
+            if (Ttall === undefined && Ttall === undefined && Light === undefined && Ttall === 0 && Tlow === 0 && Light === 0) {
+                alert("Please enter")
+            } else {
+                var Tlow = $("#in1").val() ? $("#in1").val() : $("#sin1").val();
+                var Ttall = $("#in2").val() ? $("#in2").val() : $("#sin2").val();
+                var Light = $("#in3").val() ? $("#in3").val() : $("#sin3").val();
+                console.log(Tlow, Ttall, Light);
+                $.ajax({
+                    url: "/iceBox/Add/TConData?" + " Bright=" + $("#in1").val() + " SpeedM1=" + $("#in2").val() + " SpeedM2=" + $("#in3").val(),
+                    type: "POST",
+                    success: function () {
+                        
+                    }
+
+                })
+            }
+        });
+    })
+</script>
+
+</html>

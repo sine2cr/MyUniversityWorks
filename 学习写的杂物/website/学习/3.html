@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<body>
+    <form action="1.html" method="post" id="1">
+        <!-- text 文本框 用户可以输入任何文字-->
+        <!--maxlength规定输入的数据长度-->
+        <!--label标签用于绑定一个表单元素，当点击label标签内的文本时，浏览器会自动将光标转到或者选择对应的表单元素上-->
+
+       <label for="用户名">用户名</label> : <input type="text" name="用户名" value="请输入用户名" maxlength="6" id="用户名"/><br/>
+       <!-- password 密码框 用户看不见输入的内容-->
+       <label for="密码">密码</label>:<input type="password" name="密码" id="密码"/><br/>
+       <!--radio 单选按钮 可以实现多选-->
+       <!-- name 是表单属性名字 单选按钮必须有相同的name属性才可以实现多选一-->
+       <!--checked属性用于单选和复选框内可以在打开页面时默认勾选-->
+       性别: 男 <input type="radio" name="性别" checked="checked"/> 女 <input type="radio" name="性别"/><br/>
+       <!-- checkbox 多选框 可以实现多选-->
+        爱好: 吃饭 <input type="checkbox" name="爱好"/>睡觉<input type="checkbox" name="爱好"/> 打豆豆<input type="checkbox" name="爱好"/><br/>
+       <!-- submit 属性可以将表单域form里面的表单元素里面的值提交给后台服务器-->
+        <input type="submit" value="提交数据"/><br/>
+        <!-- reset 属性可以还原表单元素初始的默认状态-->
+        <input type="reset" value="重新填写"/><br/>
+        <!--普通按钮 后期结合js搭配使用-->
+        <input type="button" value="获取手机短信"/><br/>
+        <!--file上传文件属性-->
+        <input type="file"/><br/>
+        地区：
+        <select name="地区" >
+            <option>湖南</option>
+            <option>湖北</option>
+        </select><br>
+        <form action="">
+            <textarea name="" id="" cols="15" rows="2">
+                文本域
+            </textarea>
+        </form>
+            
+
+        </form>
+</body>
+</html>

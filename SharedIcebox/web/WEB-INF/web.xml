@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <listener>
+        <listener-class>huse.ddtw.listener.Listener</listener-class>
+    </listener>
+
+
+
+
+    <servlet>
+        <servlet-name>AddVIDServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddVIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddVIDServlet</servlet-name>
+        <url-pattern>/Add/VID</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddTSenDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddTSenDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTSenDataServlet</servlet-name>
+        <url-pattern>/Add/TSenData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddTConDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddTConDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTConDataServlet</servlet-name>
+        <url-pattern>/Add/TConData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddTValueDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddTValueDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTValueDataServlet</servlet-name>
+        <url-pattern>/Add/TValueData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindTSenDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindTSenDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindTSenDataServlet</servlet-name>
+        <url-pattern>/Find/TSenData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindTCondataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindTCondataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindTCondataServlet</servlet-name>
+        <url-pattern>/Find/TConData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindTValueDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindTValueDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindTValueDataServlet</servlet-name>
+        <url-pattern>/Find/TValueData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindTDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindTDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindTDataServlet</servlet-name>
+        <url-pattern>/Find/TData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindVIDServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindVIDServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindVIDServlet</servlet-name>
+        <url-pattern>/Find/VID</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+    <servlet>
+        <servlet-name>AddSenDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddSenDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSenDataServlet</servlet-name>
+        <url-pattern>/Add/SenData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddSenConDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddSenConDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSenConDataServlet</servlet-name>
+        <url-pattern>/Add/SenConData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindNearSenDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearSenDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindNearSenDataServlet</servlet-name>
+        <url-pattern>/Find/NearSenData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindNearConDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearConDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindNearConDataServlet</servlet-name>
+        <url-pattern>/Find/NearConData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindNearValueDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearValueDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindNearValueDataServlet</servlet-name>
+        <url-pattern>/Find/NearValueData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindSenDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindSenDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindSenDataServlet</servlet-name>
+        <url-pattern>/Find/SenData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindConDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindConDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindConDataServlet</servlet-name>
+        <url-pattern>/Find/ConData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindValueDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindValueDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindValueDataServlet</servlet-name>
+        <url-pattern>/Find/ValueData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindTemDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindTemDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindTemDataServlet</servlet-name>
+        <url-pattern>/Find/TemData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindHumDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindHumDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindHumDataServlet</servlet-name>
+        <url-pattern>/Find/HumData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindLightDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindLightDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindLightDataServlet</servlet-name>
+        <url-pattern>/Find/LightData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindDataServlet</servlet-name>
+        <url-pattern>/Find/Data</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddDataServlet</servlet-class>
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddDataServlet</servlet-name>
+        <url-pattern>/Add/Data</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddValueDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddValueDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddValueDataServlet</servlet-name>
+        <url-pattern>/Add/ValueData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddConDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddConDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddConDataServlet</servlet-name>
+        <url-pattern>/Add/ConData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>testServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.testServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
+    
+    
+    <servlet>
+        <servlet-name>AddSmokeDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddSmokeDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSmokeDataServlet</servlet-name>
+        <url-pattern>/Add/SmokeData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddBreakInDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddBreakInDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBreakInDataServlet</servlet-name>
+        <url-pattern>/Add/BreakInData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddBookDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddBookDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBookDataServlet</servlet-name>
+        <url-pattern>/Add/BookData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddPeopleDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.AddPeopleDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPeopleDataServlet</servlet-name>
+        <url-pattern>/Add/PeopleData</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FindSmokeDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearSmokeDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindSmokeDataServlet</servlet-name>
+        <url-pattern>/Find/NearSmokeData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindBreakInDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearBreakInDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindBreakInDataServlet</servlet-name>
+        <url-pattern>/Find/NearBreakInData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindNearSmokeBreakDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNearSmokeBreakDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindNearSmokeBreakDataServlet</servlet-name>
+        <url-pattern>/Find/NearSmokeBreakData</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindBookIdServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindBookIdDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindBookIdServlet</servlet-name>
+        <url-pattern>/Find/BookId</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindNameIdDataServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.FindNameIdDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindNameIdDataServlet</servlet-name>
+        <url-pattern>/Find/NameId</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginPeopleServlet</servlet-name>
+        <servlet-class>huse.ddtw.controller.LoginPeopleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginPeopleServlet</servlet-name>
+        <url-pattern>/Login/People</url-pattern>
+    </servlet-mapping>
+</web-app>

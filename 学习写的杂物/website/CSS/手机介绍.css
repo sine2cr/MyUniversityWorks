@@ -1,0 +1,21 @@
+.all {     
+    margin: 20px auto;
+    height: 700px;
+    width: 950px;
+    border: 1px solid #F00
+}
+.left {
+    float: left;
+    margin: 50px auto;
+    height: 500px;
+    width: 400px;
+    border: 1px solid black;
+}
+.right{
+    float: left;
+    margin: 50px auto;
+    height: 500px;
+    width: 400px;
+    border: 1px solid black;
+    margin-left: 300px;
+}

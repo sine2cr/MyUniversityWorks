@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+
+<body>
+
+   <table id="tab">
+      <tr>
+         <td>时间</td>
+         <td>温度</td>
+      </tr>
+      <tr>
+         <td>45</td>
+         <td>46</td>
+      </tr>
+   </table>
+   </div>
+
+   <script>
+      $(document).ready(function () {
+         $.ajax({
+            url: "/iceBox/Find/SenData?time=2021-10-20 17:37",
+            type: "GET",
+            success: function (result) {
+               var txt1 = "<tr>";
+               var txt2 = "</tr>";
+               var txt3 = "<td>";
+               var txt4 = "</td>";
+               $.each(result,function (index,element) {
+                  $("#tab").append(txt1 + txt3 + element.times + txt4 + txt2);
+                  $("#tab").append(txt1 + txt3 + element.tem + txt4 + txt2);
+               })
+            }
+         })
+      })
+
+
+
+   </script>
+
+</body>
+
+</html>

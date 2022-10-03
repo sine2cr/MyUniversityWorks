@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ch ">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>催眠动画</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        @keyframes move {
+            0%{
+                transform:translate(0px,0px);
+            }
+            25%{
+                transform:translate(1000px,0px);
+            }
+            50%{
+                transform:translate(1000px,500px);
+            }
+            75%{
+                transform:translate(0px,500px);
+            }
+            100%{
+                transform:translate(0px,0px);
+            }
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            animation: move;
+            animation-duration:1.2s;
+            text-align: center;
+            line-height: 200px;
+            /*animation-iteration-count: infinite;
+            animation-direction: alternate;*/
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div>*</div>
+    
+</body>
+</html>

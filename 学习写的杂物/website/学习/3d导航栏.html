@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d导航栏</title>
+    <style>
+        *{
+             margin:0px;
+             padding: 0px;
+        }
+        ul{
+           margin: 100px; 
+        }
+        ul li{
+            float: left;
+            margin:5px;
+            perspective: 500px;
+            width: 120px;
+            height: 35px;
+            list-style: none;
+        }
+        .box{
+            position: relative;
+            transform-style: preserve-3d;
+            width: 100%;
+            height:  100%;
+            transition: all 0.4s;
+        }
+        .box:hover{
+            transform: rotateX(90deg);
+        }
+        .front,
+        .bottom{
+            position: absolute;          
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .front{
+            background-color: pink;
+            z-index: 1;
+            transform: translateZ(17.5px);
+        }
+        .bottom{
+            background-color: purple;
+
+            transform: translateY(17.5px) rotateX(-80deg);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">12</div>
+                <div class="bottom">34</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">56</div>
+                <div class="bottom">78</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">11</div>
+                <div class="bottom">22</div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

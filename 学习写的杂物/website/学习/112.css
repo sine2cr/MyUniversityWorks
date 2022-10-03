@@ -1,0 +1,38 @@
+div{
+    width:750px;
+    height: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+.hoverbox{
+    list-style: none;
+}
+.hoverbox .view{
+    display:none;
+}
+.hoverbox li{
+    float:left;
+    border: 1px solid;
+    border-color:rgb(100, 99, 99);
+    background-color:grey ;
+    padding:5px;
+    margin:2px;
+    position: relative;
+}
+.hoverbox img{
+    border: 1px solid;
+    border-color:#dddddd;
+    width:100px;
+    height: 75px;
+    background-color: white;
+    padding:2px;
+}
+.hoverbox a:hover img.view{
+    display:block;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+}

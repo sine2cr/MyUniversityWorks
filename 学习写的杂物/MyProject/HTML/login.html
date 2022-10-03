@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户登录</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/login.css"/>
+		<link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css"/>
+	</head>
+	<body>
+		<div id="box1">
+			<img src="../IMAGE/1.jpg" class="img1 img-circle">
+			<span class="s1">欢迎登录</span>
+		</div>
+		<div id="box2">
+			<br>
+			<span class="s2" id="s1">用户登录</span>
+			<span class="s2" style="color: red;" id="s2">管理员登录</span>
+			<br>
+			<hr width="100%" size="2" color="#333333">
+			<form action="" method="">
+				&nbsp;&nbsp;&nbsp;用户名:&nbsp;&nbsp;&nbsp;<input type="text" name="username">
+				<br><br><br>
+				&nbsp;&nbsp;&nbsp;用户名:&nbsp;&nbsp;&nbsp;<input type="password" name="password">
+				<br><br><br>
+				&nbsp;&nbsp;&nbsp;验证码:&nbsp;&nbsp;&nbsp;<input type="text" name="Vcode" class="put">
+				<img src="../IMAGE/1.jpg" height="30px" width="200px" >
+				<br><br>
+				<div style="text-align: center;">
+					<input name="auto" type="checkbox" />&nbsp;&nbsp;两周以内自动登录
+				</div>
+				<br><br>
+				<button type="button" class="btn btn-primary">立即登录</button>
+			</form>
+		</div>
+		<div id="box3">
+			<br>
+			<span class="s2" id="s3">用户登录</span>
+			<span class="s2" style="color: red;" id="s4">管理员登录</span>
+			<br>
+			<hr width="100%" size="2" color="#333333">
+			<form action="" method="">
+				&nbsp;&nbsp;&nbsp;用户名:&nbsp;&nbsp;&nbsp;<input type="text" name="username">
+				<br><br><br>
+				&nbsp;&nbsp;&nbsp;用户名:&nbsp;&nbsp;&nbsp;<input type="password" name="password">
+				<br><br><br>
+				<button type="button" class="btn btn-primary">立即登录</button>
+			</form>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			var s1 = document.querySelector("#s1");
+			var s2 = document.querySelector("#s2");
+			var s3 = document.querySelector("#s3");
+			var s4 = document.querySelector("#s4");
+			var box2 = document.querySelector("#box2");
+			var box3 = document.querySelector("#box3");
+			
+			s1.onclick = function(){
+				box2.style.visibility = "visible";
+				box3.style.visibility = "hidden";
+			}
+			s2.onclick = function(){
+				box2.style.visibility = "hidden";
+				box3.style.visibility = "visible";
+			}
+			s3.onclick = function(){
+				box2.style.visibility = "visible";
+				box3.style.visibility = "hidden";
+			}
+			s4.onclick = function(){
+				box2.style.visibility = "hidden";
+				box3.style.visibility = "visible";
+			}
+		}
+	</script>
+</html>

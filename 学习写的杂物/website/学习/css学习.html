@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css入门学习</title>
+    <link rel="stylesheet" href="../CSS/1.css">
+    <style type="text/css">
+    /*标签选择器*/
+    li{
+        color:blue;
+    }
+    /*类选择器*/
+    .p{
+        color: coral;
+    }
+    /*ID选择器*/
+    #p1{
+        color:white;
+    }
+    /*多元素选择器*/
+    div,p,span{
+        color:white;
+    }
+    /*后代选择器
+    作用：匹配.box里面的所有h2后代元素
+    */
+    .box h1{
+        color:green;
+    }
+    /*子代元素选择器
+    作用：
+    */
+    div > p1{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>c</li>
+        <li>c++</li>
+        <li>java</li>
+        <li>python</li>
+    </ul>
+    <div class="box">
+        <div>html</div>
+        <div>
+            <h1>CSS</h1>
+            <h2>1231</h2>
+        </div>
+        <div>php</div>
+    </div>
+</body>
+</html>

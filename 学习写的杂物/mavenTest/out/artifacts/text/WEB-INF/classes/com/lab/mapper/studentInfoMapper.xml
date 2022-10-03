@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.mapper.studentInfoMapper">
+
+    <resultMap id="studentName" type="studentInfo">
+        <id column="id" property="id"/>
+        <result column="Snamber" property="Snamber"/>
+        <result column="Sname" property="Sname"/>
+    </resultMap>
+    <insert id="insertStudentInfo">
+        insert into studentinfo(ID, Snamber, Sname)
+        values (#{id}, #{Snamber}, #{Sname})
+    </insert>
+    <update id="updateStudentInfo">
+        update studentinfo
+        <set>
+            <if test="Snamber!= null and Snamber != ' ' ">
+                Snamber=#{Snamber},
+            </if>
+            <if test="Sname!= null and Sname != ' ' ">
+                Sname=#{Sname}
+            </if>
+        </set>
+        where ID = #{id};
+    </update>
+    <delete id="dropStudentInfo">
+        delete
+        from studentInfo
+        where ID = #{id};
+    </delete>
+    <delete id="delById">
+        delete from studentInfo where ID
+        in(
+        <foreach collection="id" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+    <select id="selectAll" resultType="studentInfo">
+        select *
+        from studentinfo;
+    </select>
+    <select id="selectName" resultMap="studentName">
+        select Sname
+        from studentinfo;
+    </select>
+    <select id="selectNamebyId" resultType="com.lab.pojo.studentInfo">
+        select Sname
+        from studentinfo
+        where ID = #{id};
+    </select>
+    <select id="selectNamebyCondition" resultType="com.lab.pojo.studentInfo">
+        select Sname
+        from studentinfo
+        <where>
+            <choose>
+                <when test="id!= null">
+                    ID=#{id};
+                </when>
+                <when test="Snamber!=null">
+                    Snamber=#{Snamber};
+                </when>
+                <otherwise>
+                    1=1;
+                </otherwise>
+            </choose>
+
+        </where>
+    </select>
+</mapper>

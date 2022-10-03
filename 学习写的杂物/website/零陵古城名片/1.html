@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Educoder</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="step2erify.js"></script>
+</head>
+<style type="text/css">
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    min-width: 1200px;
+  }
+  .flex {
+    display: flex;
+  }
+  .full-height{
+    height: 100%;
+  }
+  header {
+    background: #24292D;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0 25px;
+  }
+  header > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  /*********** Begin ************/
+  .logo-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 40px;
+    height: 38px;
+    margin-right: 30px;
+  }
+  .menu-item {
+    color: #ffffff;
+    font-size: 16px;
+    width: 64px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+  }
+  .hot{
+    position: absolute;
+    top: 10px;
+    right: -22px;
+  }
+  /*********** End ************/
+</style>
+<body>
+<div class="container">
+  <header class="flex">
+    <div class="left-wrap">
+      <!--********** Begin **********-->
+      <div class="logo-block">
+        <img src="#" class="logo">
+      </div>
+      <div class="menu-block full-height flex">
+        <div class="menu-item"><span>实践课程</span></div>
+        <div class="menu-item"><span>翻转课堂</span></div>
+        <div class="menu-item"><span>实训项目</span></div>
+        <div class="menu-item"><span>在线竞赛<img class="hot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAQCAYAAAAFzxAAACl0lEQVRIS62UP0gbURzHP09DUrHW1EqHuLhYBC0t1NOCg4M432IXhxZKDwShxUA7iuLmoLUEXHSRghk1OLgaaCrnn6FD6aFUEDoIYq5NxBBNXnkvl3hWi4N5y927e+/3+f2+vz9CQhCYAl4C96nSkoC4sJUGFoEPQsJH4F2VODeZmVVARQPI2/1W0XsSuAqr30qqrg85O2N0F1726V2ciEejqQp6fI1IppOsivG9+p5TRguOQcxxOgbzaK5kvAQ0DbBtME5lIgGEg/PupKUQ0CtksBIOQz8PQEDIQQKysXBFhf3yc3YmJSkQ1/wNK0wQfUO8PDhBbW8j5eRgehnAYsb6ObGzkuLWVQ+DUMHhm22ybJr/VfUBDfE8dYUVTLyK5tASOAy0tCMtCAUVzMywsIPv6EMmklic3Okr99DRf2trI7e1x1zDosW2+mSaZf4AVeNGfwzJQ5TCTgVAI0dGhJda5m5uD3l5yqRQ/gcDICI9iMba7u8ltblJvGDy1bb77gApUbg8d7XVADfAkVTnVEabTkEySjUZxZmY4AdqXl2nq72enoUHn6Y5h8MS2+WGa/Ekk/H2o5VVgBdRtob3wikYDfEDlwFkiQX51lbqBAdIbG9SGQoR7ejgYG+NwclIbVMDHto3jAf1VpFJQA2lRgFngrfZAyWZZEI+XchiJULAsTuJxfjkOLtA0OEhDezuyWCSzs8PJ2lqlCgORCA8ti6N4XLdDuTaKXh9K+KSKJlgsjbZXAsIXTQk54Ag4Bs6AWq/alHPlc0oZ9a6MquUzrr97/9wCLD6A975xV7og4Svw3Lu/BrwQkL3NpPHfvQ64D7QCn4HXohRc1dZ1QDWJYnqy+1umSshLQAn3gDcCpqtk/4qZv02gFT1dbcRiAAAAAElFTkSuQmCC"></span></div>
+        <div class="menu-item"><span>教学案例</span></div>
+        <div class="menu-item"><span>交流问答</span></div>
+      </div>
+      <!--********** End **********-->
+    </div>
+    <div class="right-wrap">
+    </div>
+  </header>
+</div>
+</body>
+<html>

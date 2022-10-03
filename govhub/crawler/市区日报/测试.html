@@ -1,0 +1,246 @@
+"D:\pycharm 专业版\政法\venv\Scripts\python.exe" "D:/pycharm 专业版/政法/市区日报/测试.py"
+http://lib.huse.cn/2012/tsdgList.asp?page=1
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<META name="KEYWORDS" content="湖南科技学院图书馆,零陵学院图书馆" />
+<meta name="DESCRIPTION" content="湖南科技学院图书馆，零陵学院图书馆,资源丰富，人员结构合理，现代化管理" />
+<meta name="Author" content="湖南科技学院图书馆技术部,Genius,DIV+CSS" />
+<title>图书订购-湖南科技学院图书馆</title>
+<SCRIPT src="../manage/gp/ajaxrequest.js" type=text/javascript></SCRIPT>
+<script language=javascript>
+<!--
+function update(id)
+{
+  var url="../uptsdg.asp?id="+id;
+  var ajaxobj=new AJAXRequest();
+  if(!ajaxobj) alert("错误!");
+  ajaxobj.charset="GB2312";
+  ajaxobj.url=url;
+  ajaxobj.timeout=5000;
+  ajaxobj.ontimeout=function(obj){ alert("timeout");}
+  ajaxobj.oncomplete=function(obj){
+  	var xmlDoc=obj.responseText;
+	if(xmlDoc)
+	{
+		if(xmlDoc=="-1")
+			alert("错误!");
+		else
+		{
+			document.getElementById(id).innerHTML=xmlDoc;
+			alert("操作成功！");
+		}
+	}
+	else
+		alert("错误!");
+  }
+  ajaxobj.get();
+}
+function show(id)
+{
+	var id1=document.getElementById('x'+id)
+	var id2=document.getElementById('c'+id)
+	if(id1.style.display=='none')
+	{
+		id1.style.display='block';
+		id2.innerHTML="隐藏"
+	}
+	else
+	{
+		id1.style.display='none';
+		id2.innerHTML="详情"
+	}
+}
+-->
+</script>
+<LINK rel=stylesheet type=text/css href="images/css.css">
+</head>
+<body>
+<!--[if lte IE 6]>
+<style type="text/css">
+.indexdivline {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; WIDTH:198px; PADDING-RIGHT: 1px; FLOAT: left; PADDING-TOP: 1px;margin:0 11px
+}
+.bigdiv {
+	BORDER: #c0daed 1px solid;  WIDTH: 735px; FLOAT: left; margin-left:10px;
+}
+.right {
+	WIDTH: 186px; MARGIN-BOTTOM: 20px; FLOAT: right; margin-right:10px; margin-left:13px
+}
+</style>
+<![endif]-->
+<DIV class=head>
+<div id=totaldiv class=totaldiv>
+  <div id=pnglogo class=logo>
+  </div>
+  <ul class=headcolor>
+  <LI class=headcontent><SCRIPT language=JavaScript>
+today=new Date();
+function initArray(){
+    this.length=initArray.arguments.length
+    for(var i=0;i<this.length;i++)
+    this[i+1]=initArray.arguments[i]  }
+    var d=new initArray(
+      "星期日",
+      "星期一",
+      "星期二",
+      "星期三",
+      "星期四",
+      "星期五",
+      "星期六");
+    document.write(
+       "<font color=#ffffff style='font-size:12px;font-family: Arial, Helvetica, sans-serif,新宋体'> ",
+       today.getFullYear(),"年",
+       today.getMonth()+1,"月",
+       today.getDate(),"日   ",
+       d[today.getDay()+1],
+       "</font>" );
+</SCRIPT></LI>
+<li class="headtop"><A
+  href="javascript:window.external.AddFavorite('http://lib.huse.cn', '')">加入收藏</A>
+  <A
+  onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://lib.huse.cn')"
+  href="http://lib.huse.cn/#">设为主页</A><!--a href="../old/" target="_blank">旧版主页</a-->  </LI>
+</ul></div></DIV>
+<DIV class=menu style="margin-top:1px;">
+<UL>
+  <LI class=line></LI>
+  <LI ><A href="index.asp">网站首页</A>  </LI>
+  <LI class=line></LI>
+  <LI ><A
+  href="about.asp">本馆概况</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="newslist.asp?sign=0">新闻资讯</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="about.asp?id=7">读者服务</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="resource.asp">本地资源</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="tsdgList.asp">购书推荐</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="jptjList.asp">精品图书推介</A> </LI>
+  <LI class=line></LI>
+  <LI><A
+  href="messegeList.asp">留言反馈</A> </LI>
+  <LI class=line></LI>
+  <LI><A href="zslxList.asp"
+  target=_self>赠书留香</A> </LI>
+  <LI class=line></LI>
+</UL></DIV>
+<style type="text/css">
+<!--
+.tb td{ height:30px; padding:2px; margin:0;
+}
+.tb .title{ font-size:13px; font-weight:bold;}
+.xq{ padding:5px 12px;}
+.xq span{font-size:13px; font-weight:bold; margin-left:12px;}
+.xq div{ margin-left:12px;}
+-->
+</style>
+<div class="content"  style="margin-top:30px; margin-bottom:20px;">
+	<div class="bigdiv">
+    	<ul>
+   	  		<li class="title"><h1>图书订购</h1><font>当前位置：<a href="index.asp">首页</a> -  图书订购 </font></li>
+            <li class="newslistcontent1"><table width="98%" border="0" cellpadding="3" cellspacing="1" bgcolor="#d6ecf7" class="tb">
+			<tr>
+			<td width="12%" class="title">书名</td>
+			<td width="13%" class="title">isbn</td>
+			<td width="12%" class="title">作者</td>
+			<td width="14%" class="title">出版社</td>
+			<td width="10%" class="title">订购人</td>
+			<td width="15%" class="title">订购时间</td>
+			<td width="25%" class="title"></td>
+			</tr>
+			<tr><td height="25" bgcolor="#ffffff">当代西方经济学主要流派（第三版）</td><td bgcolor="#ffffff">方福前</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">中国人民大学出版社</td><td bgcolor="#ffffff">李晋行</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/7/12</font></td><td bgcolor="#ffffff"><span onclick="show(4259)" id="c4259" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4259)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4259" onclick="update(4259)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4259" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>主要内容涵盖了20世纪以来西方经济学主要流派的理论、分歧和影响。按照各个流派产生的先后次序，本书重点论述了6个西方经济学主流学派，它们是经济学中的古典学派、凯恩斯主义、货币主义、新古典宏观经济学、供给学派和新凯恩斯主义，勾画出了20世纪西方宏观经济学发展的主要图景</div><span>书评：</span><br /><div>对于使学者清楚西方经济学的发展渊源与各经济学流派主张有很大帮助，将微观经济学与宏观经济学以流派与历史发展的角度产生串联与交织</div></td></tr><tr><td height="25" bgcolor="#ffffff">小家，越住越大1 2 3（套装共3册）</td><td bgcolor="#ffffff">逯薇</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">中信出版社</td><td bgcolor="#ffffff">小芳</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/6/24</font></td><td bgcolor="#ffffff"><span onclick="show(4258)" id="c4258" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4258)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4258" onclick="update(4258)" style="color:blue;cursor:pointer;">63</span>)</td></tr><tr id="x4258" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">学习究竟是什么</td><td bgcolor="#ffffff">万维钢</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">新星出版社</td><td bgcolor="#ffffff">田淑娴</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/6/24</font></td><td bgcolor="#ffffff"><span onclick="show(4257)" id="c4257" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4257)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4257" onclick="update(4257)" style="color:blue;cursor:pointer;">15</span>)</td></tr><tr id="x4257" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">老人与海</td><td bgcolor="#ffffff">海明威</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">蒋习习</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/6/23</font></td><td bgcolor="#ffffff"><span onclick="show(4256)" id="c4256" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4256)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4256" onclick="update(4256)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4256" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">同名同姓受害者协会</td><td bgcolor="#ffffff">[日] 下村敦史</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">文汇出版社</td><td bgcolor="#ffffff">孙捷</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/6/11</font></td><td bgcolor="#ffffff"><span onclick="show(4255)" id="c4255" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4255)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4255" onclick="update(4255)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4255" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>你有没有在网上搜索过自己的名字？你有没有想过，自己会因为名字，成为全网追杀的猎物？一起震惊全国的惨案，幼女被连捅二十八刀。凶手的身份保密，名字却遭到泄露——大山正纪。一夜之间，只要与大山正纪同名同姓，就被怀疑为凶手，甚至沦为肆意泄愤的对象。从社交网络到现实世界，他们被&#36924;入绝境，无处可逃。便利店店员、足球界希望之星、萌图绘画爱好者…… 为了夺回正常的人生，十位“大山正纪”秘密结盟，发誓要查明凶手的真身。他们渐渐发现，每一位看&#20284;普通的“大山正纪”，都怀揣着不可告人的秘密。而那桩看&#20284;水落石出的惨案，实则另有隐情。</div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">1 X数字创意建模</td><td bgcolor="#ffffff">云尚教育</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">江苏凤凰教育出版社</td><td bgcolor="#ffffff">林佳佳</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/6/2</font></td><td bgcolor="#ffffff"><span onclick="show(4254)" id="c4254" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4254)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4254" onclick="update(4254)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4254" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>168<br /><span>简介：</span><br /><div>产品设计艺术方向，犀牛 keyshot软件，涵盖从初级到高级的建模方法</div><span>书评：</span><br /><div>很好的书，甚至推荐学校用作产品设计专业犀牛课的教材，从简单到难，很全</div></td></tr><tr><td height="25" bgcolor="#ffffff">活着</td><td bgcolor="#ffffff">余华</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">安雪敏</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/5/22</font></td><td bgcolor="#ffffff"><span onclick="show(4253)" id="c4253" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4253)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4253" onclick="update(4253)" style="color:blue;cursor:pointer;">3</span>)</td></tr><tr id="x4253" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">被讨厌的勇气</td><td bgcolor="#ffffff">岸见一郎，古贺史健</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">机械工业出版社</td><td bgcolor="#ffffff">刘文慧</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/5/19</font></td><td bgcolor="#ffffff"><span onclick="show(4252)" id="c4252" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4252)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4252" onclick="update(4252)" style="color:blue;cursor:pointer;">68</span>)</td></tr><tr id="x4252" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>-1<br /><span>简介：</span><br /><div>该书讲述了如何能够在繁杂的日常琐碎和复杂的人际关系中用自己的双手去获得真正的幸福。</div><span>书评：</span><br /><div>它期许我这一年能拥有被讨厌的勇气，继续大胆地许下做自己的愿望，并勇敢实现它！——曾宝仪小心检视，你的成功是否只是以害怕被他人讨厌而换来的。若是如此，那你的成功不幸只代表“你为他人活了一辈子”。——陈文茜一部振奋人心又好读易懂的心灵作品。看完之后，你绝对可以为你无意义的人生增添美丽色彩的意义。好书！——身心灵作家 张德芬</div></td></tr><tr><td height="25" bgcolor="#ffffff">克林索尔的最后夏天</td><td bgcolor="#ffffff">[德]赫尔曼?黑塞</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">天津人民出版社</td><td bgcolor="#ffffff">1</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/5/11</font></td><td bgcolor="#ffffff"><span onclick="show(4251)" id="c4251" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4251)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4251" onclick="update(4251)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4251" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>20<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">阴翳&#31036;赞</td><td bgcolor="#ffffff">谷崎润一郎</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">黄朝敏</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/4/26</font></td><td bgcolor="#ffffff"><span onclick="show(4250)" id="c4250" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4250)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4250" onclick="update(4250)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4250" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>日本古典主义美学的大成之作</div><span>书评：</span><br /><div>用《阴翳&#31036;赞》作为切入口来探究日本独特的设计风&#26684;，是十分理智，明智的。</div></td></tr><tr><td height="25" bgcolor="#ffffff">生于一九九叉</td><td bgcolor="#ffffff">顾异</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">新世界出版社</td><td bgcolor="#ffffff">孙捷</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/4/24</font></td><td bgcolor="#ffffff"><span onclick="show(4249)" id="c4249" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4249)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4249" onclick="update(4249)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4249" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">阴翳&#31036;赞</td><td bgcolor="#ffffff">谷崎润一郎</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">黄朝敏</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/4/17</font></td><td bgcolor="#ffffff"><span onclick="show(4248)" id="c4248" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4248)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4248" onclick="update(4248)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4248" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>日本古典主义美学的大成。</div><span>书评：</span><br /><div>深入了解《阴翳&#31036;赞》可能发展出与欧美光亮的生活文化不一样的阴翳的生活文化。这可能是我们设计的另一个方向。</div></td></tr><tr><td height="25" bgcolor="#ffffff">一地霜白</td><td bgcolor="#ffffff">陈年喜</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">山东文艺出版社</td><td bgcolor="#ffffff">姚桂芳</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/4/11</font></td><td bgcolor="#ffffff"><span onclick="show(4247)" id="c4247" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4247)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4247" onclick="update(4247)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4247" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>本书收录陈年喜47篇非虚构散文，勾勒命运长途中的足迹，记录同路人的生死。故事回望故乡风物和异乡风尘，书写人的卑微和崇高，书写生命之重和生命之轻。面叶儿、油花、桑葚、茵陈……苦寒的故乡童年，充满生活的残酷，也饱含人间的温情。阿克陶、渑池、绥阳、北京??????动荡的矿山生活，孤独的城市漂泊，承载血泪之痛，也诉说生之坚强。目录
+</div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">极简天文学</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">杨</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/3/29</font></td><td bgcolor="#ffffff"><span onclick="show(4244)" id="c4244" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4244)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4244" onclick="update(4244)" style="color:blue;cursor:pointer;">1</span>)</td></tr><tr id="x4244" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>以简单明了的知识去简述天文学</div><span>书评：</span><br /><div>《极简天文学》(节选）［英］ 科林?斯图尔特没有什么东西是永恒的，我们能存在于这个宇宙中，并且思考有关宇宙的奥秘，这实际上是一种应该珍视的幸运。我们本来就是星星的孩子，我们来自太空。我们骨骼中的钙元素和血液中的铁元素，是在濒临死亡的恒星核心处产生，并且通过超新星爆发，散播到宇宙的各个地方。向太空进发，其实只是一趟回家的旅途，而我们在天文学和太空探索中付出的努力，正一步一步的实现着在太空中永久生存下去的梦想。?</div></td></tr><tr><td height="25" bgcolor="#ffffff">通识，学问的门类</td><td bgcolor="#ffffff">茂木健一郎</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">江西人民出版社</td><td bgcolor="#ffffff">钟月琳</td><td bgcolor="#ffffff"><font style='color:#999999;'>2022/2/18</font></td><td bgcolor="#ffffff"><span onclick="show(4238)" id="c4238" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4238)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4238" onclick="update(4238)" style="color:blue;cursor:pointer;">25</span>)</td></tr><tr id="x4238" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div>本书内容分为人文科学、社会科学、自然科学及文化艺术四大门类，并将隶属于不同门类的共36个具体学科从时间发展脉络、主要代表人物、学科发展关键成果以及个别学科在日本的发展现状等方面向读者展示各个学科的基本发展情况。在文字叙述的同时，书中穿插了大量关于具体学科内容的图表，以多样图表的形式立体呈现各学科发展中的主要人物、关键时间、重要事件等。简明的文字表述，清晰的图谱展示，图文并茂，为读者开启了解各个学科的大门。</div><span>书评：</span><br /><div>许多人不清楚自己的兴趣所在，通过这本书或许能帮助到一些迷茫的同学。</div></td></tr><tr><td height="25" bgcolor="#ffffff">焚舟纪</td><td bgcolor="#ffffff">安吉拉卡特</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">夏凯丽</td><td bgcolor="#ffffff"><font style='color:#999999;'>2021/11/23</font></td><td bgcolor="#ffffff"><span onclick="show(4237)" id="c4237" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4237)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4237" onclick="update(4237)" style="color:blue;cursor:pointer;">19</span>)</td></tr><tr id="x4237" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">德米安</td><td bgcolor="#ffffff">赫尔曼.黑塞</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">夏凯丽</td><td bgcolor="#ffffff"><font style='color:#999999;'>2021/11/23</font></td><td bgcolor="#ffffff"><span onclick="show(4236)" id="c4236" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4236)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4236" onclick="update(4236)" style="color:blue;cursor:pointer;">20</span>)</td></tr><tr id="x4236" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">德米安</td><td bgcolor="#ffffff">赫尔曼.黑塞</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">夏凯丽</td><td bgcolor="#ffffff"><font style='color:#999999;'>2021/11/23</font></td><td bgcolor="#ffffff"><span onclick="show(4235)" id="c4235" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4235)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4235" onclick="update(4235)" style="color:blue;cursor:pointer;">8</span>)</td></tr><tr id="x4235" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">天地宝图</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">曾鹏举</td><td bgcolor="#ffffff"><font style='color:#999999;'>2021/11/16</font></td><td bgcolor="#ffffff"><span onclick="show(4234)" id="c4234" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4234)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4234" onclick="update(4234)" style="color:blue;cursor:pointer;">7</span>)</td></tr><tr id="x4234" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td height="25" bgcolor="#ffffff">康巴情书</td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff"></td><td bgcolor="#ffffff">张雨晴</td><td bgcolor="#ffffff"><font style='color:#999999;'>2021/10/10</font></td><td bgcolor="#ffffff"><span onclick="show(4233)" id="c4233" style="color:blue;cursor:pointer;">详情</span>&nbsp;&nbsp;&nbsp;<span onclick="update(4233)" style="color:blue;cursor:pointer;">我也订购</span>(<span id="4233" onclick="update(4233)" style="color:blue;cursor:pointer;">7</span>)</td></tr><tr id="x4233" style="display:none;"><td colspan=7 class="xq"><span>价格：</span>0<br /><span>简介：</span><br /><div></div><span>书评：</span><br /><div></div></td></tr><tr><td colspan=7 bgcolor="#ffffff">
+    	 	<a href='/2012/tsdgList.asp?page=2'>下一页</a>
+     		<a href='/2012/tsdgList.asp?page=21'>尾页</a>
+
+　共420条　每页显示20条　　第1页　共21页
+    <script language="JavaScript">
+      <!--
+       function FP_jumpMenu(el,frm,sel) {//v1.0
+       var href=el.options[el.selectedIndex].value; if(sel) el.selectedIndex=0;
+       if('_new'==frm) open(href); else eval(frm+".location='"+href+"'");
+        }
+       // -->
+     </script>
+   <select size="1" onchange="FP_jumpMenu(this,'window',false)" id="id1" name="D1" style="font-size: 11px;">
+
+          <option value="/2012/tsdgList.asp?page=1" selected>第1页</option>
+
+          <option value="/2012/tsdgList.asp?page=2" >第2页</option>
+
+          <option value="/2012/tsdgList.asp?page=3" >第3页</option>
+
+          <option value="/2012/tsdgList.asp?page=4" >第4页</option>
+
+          <option value="/2012/tsdgList.asp?page=5" >第5页</option>
+
+          <option value="/2012/tsdgList.asp?page=6" >第6页</option>
+
+          <option value="/2012/tsdgList.asp?page=7" >第7页</option>
+
+          <option value="/2012/tsdgList.asp?page=8" >第8页</option>
+
+          <option value="/2012/tsdgList.asp?page=9" >第9页</option>
+
+          <option value="/2012/tsdgList.asp?page=10" >第10页</option>
+
+          <option value="/2012/tsdgList.asp?page=11" >第11页</option>
+
+          <option value="/2012/tsdgList.asp?page=12" >第12页</option>
+
+          <option value="/2012/tsdgList.asp?page=13" >第13页</option>
+
+          <option value="/2012/tsdgList.asp?page=14" >第14页</option>
+
+          <option value="/2012/tsdgList.asp?page=15" >第15页</option>
+
+          <option value="/2012/tsdgList.asp?page=16" >第16页</option>
+
+          <option value="/2012/tsdgList.asp?page=17" >第17页</option>
+
+          <option value="/2012/tsdgList.asp?page=18" >第18页</option>
+
+          <option value="/2012/tsdgList.asp?page=19" >第19页</option>
+
+          <option value="/2012/tsdgList.asp?page=20" >第20页</option>
+
+          <option value="/2012/tsdgList.asp?page=21" >第21页</option>
+
+    </select>
+    </td></tr></table></li>
+		</ul>
+    </div>
+	<div class="right">
+	<ul>
+	<li class="righttitle">信息检索 → 标题</li>
+	<form action="newslist.asp" method="get" name="add">
+	<li class="newssearch"><input name="content" type="text" class="searchinput" value="" />
+        <input name="sign" type="hidden" id="sign" value="" /><input name="action" type="hidden" value="search_news" />
+        <input type="hidden" name="token_news" value="90961">
+        <input name="submit" type="image" class="searchbutton" src="images/search.gif" value="搜索" /></li>
+	</form>
+</ul>
+<ul>
+	<li class="righttitle">图书订购</li>
+	<li class="prtype"><a href="tsdgList.asp">订购列表</a><li class="prtype"><a href="tsdg.asp">我要订购</a>
+</ul>
+	</div>
+</div>
+<div class="foot">地址：湖南省永州市零陵区杨梓塘路130号 邮编：425100 <a href = "https://beian.miit.gov.cn/#/Integrated/index"> 湘ICP备 13000099 </a><br />Tel:0746-6381444 E-mail:tsg6381444@126.com<br/>
+Copyright&nbsp;<span style="text-decoration: none">&copy;</span>&nbsp;<a href="http://lib.huse.cn">湖南科技学院图书馆</a> All Rights Reserved.<script src='http://w.cnzz.com/c.php?id=30010750&l=2' language='JavaScript' charset='gb2312'></script><!--script type='text/javascript' src='http://s1.addup.com.cn/stat.aspx?id=11&sp=1'  language='javascript' charset='gb2312'></script-->
+</div>
+</body>
+</html>
+over
+
+Process finished with exit code 0

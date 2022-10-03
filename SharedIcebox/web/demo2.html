@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(0, 105, 190);
+        }
+
+        body {
+            background-color: pink;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4 {
+
+            height: 300px;
+            width: 300px;
+            background-color: skyblue;
+            margin: 10px 10px;
+        }
+
+        .box5 {
+            height: 400px;
+            width: 650px;
+            background-color: skyblue;
+            margin: 10px 10px;
+        }
+
+        .box6 {
+            background-color: skyblue;
+            margin: 10px 10px;
+
+            width: 300px;
+            height: 30%;
+            overflow: auto;
+        }
+
+        span {
+            color: white;
+        }
+    </style>
+    <title>图书系统</title>
+</head>
+
+<body>
+    <h1>图书系统</h1>
+    <div class="box">
+        <div class="box1">
+            <h3>状态</h3>
+            <p>烟雾传感器一：<span></span></p>
+            <p>烟雾传感器二：<span></span></p>
+            <p>非法闯入：<span></span></p>
+            <p>图书馆状态: <span></span></p>
+            <p><button type="button" id="btn">开闭馆</button></p>
+        </div>
+        <div class="box2">
+            <h3>查询系统</h3>
+            <p>请输入书号:<input type="text" id="in1"></p>
+            <p>请输入借阅人:<input type="text" id="in2"></p>
+            <p>选择日期：<input type="date" name="selData" id="selDataYear"></p>
+            <p>选择时间：<input type="time" name="selData" id="selDataTime"></p>
+            <p>
+                选择查询条件：
+                <select name="" id="selcontrol">
+                    <option value="person">借阅人</option>
+                    <option value="number">书号</option>
+
+                </select>
+            </p>
+            <p><button type="button" id="switch">显示图表</button><button type="button" id="switch2">显示表格</button> </p>
+
+            <p>图书状态：<span></span></p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box5" id="box5">
+            <h3>图形界面</h3>
+        </div>
+        <div class="box6" id="table1">
+            <h3>表格显示</h3>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    //状态显示
+    /*function tryGet() {
+        $.ajax({
+            url: "/iceBox/Find/NearSmokeBreakData",
+            type: "GET",
+            success: function (result) {
+                $(".box1 p:nth-child(2) span").text(result[0].smoke1);
+                $(".box1 p:nth-child(3) span").text(result[0].smoke2);
+                if (result[0].breakin == 1) {
+                    $(".box1 p:nth-child(4) span").text("是");
+                } else {
+                    $(".box1 p:nth-child(4) span").text("否");
+                }
+            }
+        })
+    }*/
+    setInterval(function () {
+        $.ajax({
+            url: "/iceBox/Find/NearSmokeBreakData",
+            type: "GET",
+            success: function (result) {
+                $(".box1 p:nth-child(2) span").text(result[0].smoke1);
+                $(".box1 p:nth-child(3) span").text(result[0].smoke2);
+                var status = result[0].flag == 0 ? "闭馆" : "开馆";
+                $(".box1 p:nth-child(5) span").text(status);
+                if (result[0].breakin == 1) {
+                    $(".box1 p:nth-child(4) span").text("是");
+                } else {
+                    $(".box1 p:nth-child(4) span").text("否");
+                }
+            }
+        })
+    }, 1000)
+
+    $("#btn").click(function () {
+        var breakStatu = $(".box1 p:nth-child(4) span").text() == "是" ? 1 : 0;
+        var toflag = $(".box1 p:nth-child(5) span").text() == "闭馆" ? 1 : 0;
+        $.ajax({
+            url: "/iceBox/Add/BreakInData?ifbreakin=" + breakStatu + "&flag=" + toflag,
+            type: "GET",
+            success: function () {
+                if (toflag == 1) {
+                    $(".box1 p:nth-child(5) span").text("开馆");
+                } else if (toflag == 0) {
+                    $(".box1 p:nth-child(5) span").text("闭馆");
+                } else {
+                    $(".box1 p:nth-child(5) span").text("异常");
+                }
+            }
+        })
+    })
+
+
+    $("#switch").click(function () {
+        $("#in1").val();
+        $("#in2").val();
+        var controller = $("#selcontrol").val();
+        if (controller == 'person') {
+            var myEchart = echarts.init(document.getElementById('box5'));
+            $.ajax({
+                url: "Find/NameId?nameId=" + $("#in2").val() + "&time=" + $("#selDataYear").val() + " " + $("#selDataTime").val(),
+                type: "GET",
+                success: function setValue(result) {
+
+                    var time = new Array();
+                    var hum = new Array();
+                    //console.log(result[0]);
+                    var values = new Array();
+                    result.forEach(function (item, index, arr) {
+                        time.push(arr[index].times);
+                        hum.push(Number(arr[index].borrow) + 1);
+                        if (arr[index].borrow == 0) {
+                            values.push('借出');
+                        } else {
+                            values.push('在馆');
+                        }
+                    });
+                    console.log(values[0]);
+
+                    alert("1为借出，2为在馆");
+
+
+                    var IStrue = time.length > 20;
+                    var option = {
+                        title: {
+                            text: "借阅历史"
+                        },
+                        tooltip: {
+
+
+                        },
+                        legend: {
+                            data: ["数据"]
+                        },
+                        xAxis: {
+                            formatter: '{yyyy}-{MM}-{dd}' + '' + '{HH}:{mm}',
+                            name: '时间',
+                            data: time
+                        },
+                        yAxis: {
+
+                        },
+                        series: [
+                            {
+                                name: '图书状态',
+                                type: "bar",
+                                data: hum,
+                                itemStyle: {
+                                    normal: {
+                                        label: {
+                                            show: true,
+                                            position: 'top',
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    myEchart.setOption(option, false, true);
+                    // setTimeout(setValue, 1000);
+                }
+            });
+        } else {
+            var myChart3 = echarts.init(document.getElementById('box5'));
+            $.ajax({
+                url: "Find/BookId?bookId=" + $("#in1").val() + "&time=" + $("#selDataYear").val() + " " + $("#selDataTime").val(),
+                type: "GET",
+                success: function setValue2(result) {
+                    alert("1为借出，2为在馆");
+
+                    var time = new Array();
+                    var hum = new Array();
+                    var values = new Array();
+
+                    result.forEach(function (item, index, arr) {
+                        time.push(arr[index].times);
+                        hum.push(Number(arr[index].borrow) + 1);
+                        if (arr[index].borrow == 0) {
+                            values.push('借出');
+                        } else {
+                            values.push('在馆');
+                        }
+                    });
+
+                    var IStrue = time.length > 20;
+
+                    var option = {
+                        title: {
+                            text: "借阅历史"
+                        },
+                        tooltip: {
+
+                        },
+                        legend: {
+                            data: ["数据"]
+                        },
+                        xAxis: {
+                            formatter: '{yyyy}-{MM}-{dd}' + '' + '{HH}:{mm}',
+                            name: '时间',
+                            data: time
+                        },
+                        yAxis: {
+
+                        },
+                        series: [
+                            {
+                                name: '图书状态',
+                                type: "bar",
+                                data: hum,
+                                itemStyle: {
+                                    normal: {
+                                        label: {
+                                            show: true,
+                                            position: 'top',
+
+                                        }
+
+
+                                    }
+                                }
+                            }
+                        ]
+                    };
+
+                    myChart3.setOption(option, false, true);
+                    //   setTimeout(setValue2, 1000);
+                }
+            });
+        }
+
+
+    });
+    //显示表格
+    $("#switch2").click(function () {
+        var datetime = $("#selDataYear").val() + " " + $("#selDataTime").val();
+        var controller = $("#selcontrol").val();
+        var submitted = $("#selcontrol").val() + " " + datetime;
+        if (controller == 'person') {
+            $.ajax({
+                url: "Find/NameId?nameId=" + $("#in2").val() + "&time=" + $("#selDataYear").val() + " " + $("#selDataTime").val(),
+                type: "GET",
+                success: function (result) {
+                    $("#table1").empty();
+                    $("#table1").append("<tr>" + "<td>" + "时间" + "</td>" + "  " + "<td>" + "状态" + "</td>" + "<td>" + "书号" + "</td>" + "</tr>");
+                    $.each(result, function (key, resultValue) {
+                        var txt = Number(resultValue.borrow) == 0 ? "借出" : "在馆";
+                        var str = "<tr>" + "<td align='center'>" + resultValue.times + "</td>" + "<td align='center'>"
+                            + txt + "</td>" + "<td>" + resultValue.bookId + " </td> " + "</tr>";
+                        $("#table1").append(str);
+                    })
+
+                }
+
+            })
+        } else {
+            $.ajax({
+                url: "Find/BookId?bookId=" + $("#in1").val() + "&time=" + $("#selDataYear").val() + " " + $("#selDataTime").val(),
+                type: "GET",
+                success: function (result) {
+                    $("#table1").empty();
+                    $("#table1").append("<tr>" + "<td>" + "时间" + "</td>" + "  " + "<td>" + "状态" + "</td>" + "<td>" + "借阅人" + "</td>" + "</tr>");
+                    $.each(result, function (key, resultValue) {
+                        var txt = Number(resultValue.borrow) == 0 ? "借出" : "在馆";
+                        var str = "<tr>" + "<td align='center'>" + resultValue.times + "</td>" + "<td align='center'>"
+                            + txt + "</td>" + "<td>" + resultValue.nameId + "</td>" + "</tr>";
+                        $("#table1").append(str);
+                    })
+
+                }
+
+            })
+        }
+    })
+
+
+
+
+</script>
+
+</html>
