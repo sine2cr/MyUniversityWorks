@@ -1,19 +1,17 @@
-package src;
 
-import src.collection.*;
 
 public class Main {
     public static void main(String[] args) {
 
 
         //数组队列
-        ArrayQueue<Integer> queue = new ArrayQueue<>();
-        queue.offer(111);
-        queue.offer(222);
-        queue.offer(333);
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
+//        collection.ArrayQueue<Integer> queue = new collection.ArrayQueue<>();
+//        queue.offer(111);
+//        queue.offer(222);
+//        queue.offer(333);
+//        System.out.println(queue.poll());
+//        System.out.println(queue.poll());
+//        System.out.println(queue.poll());
         //链表队列
 //        LinkedQueue<Integer> queue = new LinkedQueue<>();
 //        queue.offer(111);

@@ -1,4 +1,4 @@
-package src.collection;
+package collection;
 
 public class ArrayList<E> {
     int capacity =2;

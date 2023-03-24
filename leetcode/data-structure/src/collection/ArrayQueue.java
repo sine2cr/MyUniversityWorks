@@ -1,4 +1,4 @@
-package src.collection;
+package collection;
 
 import java.util.NoSuchElementException;
 
