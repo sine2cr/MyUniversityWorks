@@ -14,7 +14,7 @@ public class MergeSortTest {
     private MergeSort mergeSort=new MergeSort();
     @Test
     public void testMergeSort(){
-        int[] list={2,1,3,5,4,6,8,7};
+        int[] list={101,11,13,51,7,12,1,8,10,2,17,3,16,14};
         mergeSort.MergeSort(list);
         System.out.println(mergeSort.toString());
     }

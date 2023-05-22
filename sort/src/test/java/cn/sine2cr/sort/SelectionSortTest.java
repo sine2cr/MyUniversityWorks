@@ -16,7 +16,7 @@ public class SelectionSortTest {
     private SelectionSort selectionSort=new SelectionSort();
     @Test
     public void testSelectionSort(){
-        int[] a={9,11,13,4,6,5,7,12,1,10,2,8,3,16,14,15};
+        int[] a={9,11,13,4,6,5,7,12,1,10,2,8,3,16,14};
         selectionSort.selectionSort(a);
         System.out.println(selectionSort.toString());
     }

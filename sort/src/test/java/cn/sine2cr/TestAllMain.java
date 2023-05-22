@@ -24,7 +24,7 @@ public class TestAllMain {
         SelectionSortTest selectionSortTest = new SelectionSortTest();
         ShellSortTest shellSortTest = new ShellSortTest();
 
-
+        System.out.println("#=========感谢B站英雄哥的优质视频分享========");
         bubbleSortTest.testBubbleSort();
         bucketSortTest.testBucketSort();
         countingSortTest.testCountingSort();

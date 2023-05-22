@@ -13,7 +13,7 @@ public class BubbleSortTest {
     private BubbleSort bubbleSort=new BubbleSort();
     @Test
     public void testBubbleSort(){
-        int[] a={-5,9,11,13,32,4,10,88,2,8,3,16,14};
+        int[] a={-5,9,11,13,32,4,1,10,88,2,8,3,16,14};
         bubbleSort.bubbleSort(a);
         System.out.println(bubbleSort.toString());
     }
