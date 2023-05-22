@@ -11,7 +11,21 @@ import java.util.Arrays;
  **/
 public class InsertionSort {
     private int[] r;
-    public int[] insertSort(int[] list){
+    public int[] insertionSort(int[] list){
+        if (list.length==0)return list;
+        for (int i = 1; i <list.length; i++) {
+            int temp=list[i];
+            for (int j=i-1;j>0;j--){
+                if (list[i]<list[j]){
+                    list[j+1]=list[j];
+                }else {
+                    break;
+                }
+                list[j]=temp;
+
+            }
+        }
+        r=list;
         return list;
     }
 
