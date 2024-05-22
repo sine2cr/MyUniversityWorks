@@ -1,0 +1,5 @@
+system:
+  peers: 127.0.0.1:20200
+  groupId: 1
+  certPath: conf,config,src/main/resources/conf,src/main/resources/config
+
