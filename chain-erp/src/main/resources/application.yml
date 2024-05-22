@@ -1,0 +1,56 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /chainErp
+    session:
+      timeout: 36000
+  tomcat:
+    basedir: /opt/tmp/tomcat
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jsh_erp?useUnicode=true&characterEncoding=utf8&useCursorFetch=true&defaultFetchSize=500&allowMultiQueries=true&rewriteBatchedStatements=true&useSSL=false
+    username: root
+    password: 1234
+  redis:
+    database: 0
+#    host: "redis-17551.c292.ap-southeast-1-1.ec2.cloud.redislabs.com"
+#    port: 17551
+#    password: Redis1234
+    url: "redis://default:Redis1234@redis-17551.c292.ap-southeast-1-1.ec2.cloud.redislabs.com:17551/0"
+
+  servlet:
+    multipart:
+      max-file-size: 10485760
+      max-request-size: 10485760
+
+mybatis-plus:
+  mapper-locations: ./mapper_xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+manage:
+  roleId: 10
+
+tenant:
+  tryDayLimit: 3000
+  userNumLimit: 300
+
+plugin:
+  runMode: prod
+  pluginPath: plugins
+  pluginConfigFilePath: pluginConfig
+
+file:
+  path: /opt/chainErp/upload
+
+system:
+  peers: 192.168.88.101:20200
+  certPath: conf,config,src/main/resources/conf,src/main/resources/config
+  hexPrivateKey: "6f0fac242a1c02d0aec8e11881d0a8b9411d6bace450677647036c52614f9255"
+  contract:
+    operationAddress: "0xd92ab048ec32ddba541384144ee81b1a0cfd9e4e"
+  groupId: 1
+

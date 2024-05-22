@@ -34,18 +34,18 @@ public class HeapSort {
         int[] heap = new int[list.length + 1];
         System.arraycopy(list, 0, heap, 1, list.length);
         int root = 1;
-        int l=heap.length;
-        for (int i = l/2; i >root-1 ; i--) {
-            maxHeapify(heap,i,l-1);
+        int l = heap.length;
+        for (int i = l / 2; i > root - 1; i--) {
+            maxHeapify(heap, i, l - 1);
         }
-        for (int i = l-1; i >root ; i--) {
-            int temp=heap[i];
-            heap[i]=heap[root];
-            heap[root]=temp;
-            maxHeapify(heap,root,i-1);
+        for (int i = l - 1; i > root; i--) {
+            int temp = heap[i];
+            heap[i] = heap[root];
+            heap[root] = temp;
+            maxHeapify(heap, root, i - 1);
         }
-        System.arraycopy(heap,1,list,0,heap.length-1);
-        r=list;
+        System.arraycopy(heap, 1, list, 0, heap.length - 1);
+        r = list;
         return r;
 
 

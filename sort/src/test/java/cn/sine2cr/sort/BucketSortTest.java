@@ -13,7 +13,7 @@ public class BucketSortTest {
     BucketSort bucketSort=new BucketSort();
     @Test
     public void testBucketSort(){
-        int[] list = {2,3,4,1,5,7,6,8,9,33,44,54,43,32,67,45,77,744,567,345};
+        int[] list = {1011,23211,124243,511,724332,-1124234};
         bucketSort.bucketSort(list);
         System.out.println(bucketSort.toString());
     }

@@ -15,7 +15,8 @@ public class CountingSortTest {
 
     @Test
     public void testCountingSort(){
-        int[] list = {1, 2, 4, 5, 6, 7, 6, 5, 4, 3, 2,111111,0};
+//        int[] list = {9,11,-13,4.67,12,1,-10,3.3333,8,3};
+        int[] list = {9,11,13,4,12,1,10,22,8,3};
         countingSort.countingSort(list);
         System.out.println(countingSort.toString());
     }
